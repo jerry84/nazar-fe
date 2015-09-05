@@ -27,6 +27,14 @@ gulp.task('clean:css', function() {
   return del('build/css/*.css');
 });
 
+gulp.task('clean:fonts', function() {
+  return del('build/css/fonts/*');
+});
+
+gulp.task('clean:templates', function() {
+  return del('build/templates');
+});
+
 // Minify and copy all JavaScript
 gulp.task('scripts', ['clean'], function() {
   return gulp.src(paths.scripts)
@@ -46,7 +54,7 @@ gulp.task('images', ['clean'], function() {
 });
 
 // Convert less to css
-gulp.task('less', ['clean:css', 'copy:bootstrap'], function() {
+gulp.task('less', ['clean:css', 'copy:bootstrap', 'copy:fonts'], function() {
   return gulp.src(paths.styles)
     .pipe(less()
       .on('error', util.log))   
@@ -62,12 +70,17 @@ gulp.task('watch', function() {
   gulp.watch(paths.styles, ['less']);
 });
 
+gulp.task('copy:fonts', ['clean:fonts'], function() {
+  return gulp.src('client/less/fonts/*')
+    .pipe(gulp.dest('build/css/fonts'));
+});
+
 gulp.task('copy:bootstrap', function() {
   return gulp.src('node_modules/bootstrap/dist/css/bootstrap.min.css')
     .pipe(gulp.dest('build/css'));
 });
 
-gulp.task('templates', function() {
+gulp.task('templates', ['clean:templates'], function() {
   return gulp.src(paths.templates)
     .pipe(gulp.dest('build/templates'));
 });

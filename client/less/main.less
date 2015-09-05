@@ -1,1 +1,67 @@
-.test {}
+// Font type
+@import url(https://fonts.googleapis.com/css?family=Poppins);
+@nazarFont: 'Poppins', sans-serif;
+
+.nazar {
+  font-family: @nazarFont;
+  
+  .navbar {
+    &-brand {
+      font-size: 16px;
+    }
+    
+    &-default {
+      background-color: #fff;
+      
+      .navbar-nav {
+        font-size: 16px;
+
+        > li {
+          &:hover {
+            background-color: #e7e7e7;
+          }
+        
+          > a {
+            color: #000;
+          }
+        }
+      }
+      
+      .navbar-right {
+        font-size: 12px;
+        font-style: italic;
+        
+        .icon {
+          font-size: 16px;
+          position: relative;
+          top: 2px;
+        }
+        
+        > li {
+          > a {
+            padding: 13px 10px;
+          }
+        }
+      }
+    }
+  }
+  
+  .caret {
+    color: #47a5de;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .navbar-nav > li >a {
+      padding: 15px 10px;
+    }
+    .navbar-right > li >a {
+      padding: 13px 10px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .navbar-brand {
+      display: none;
+    }
+  }
+}
