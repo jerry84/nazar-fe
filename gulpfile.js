@@ -15,7 +15,7 @@ var paths = {
   scripts: 'client/js/**/*.js',
   images: 'client/img/**/*',
   styles: 'client/less/*.less',
-  templates: 'client/templates/*.html'
+  start: 'client/index.html'
 };
 
 // Remove the build
@@ -31,8 +31,8 @@ gulp.task('clean:fonts', function() {
   return del('build/css/fonts/*');
 });
 
-gulp.task('clean:templates', function() {
-  return del('build/templates');
+gulp.task('clean:start', function() {
+  return del('build/index.html');
 });
 
 // Minify and copy all JavaScript
@@ -80,10 +80,10 @@ gulp.task('copy:bootstrap', function() {
     .pipe(gulp.dest('build/css'));
 });
 
-gulp.task('templates', ['clean:templates'], function() {
-  return gulp.src(paths.templates)
-    .pipe(gulp.dest('build/templates'));
+gulp.task('start', ['clean:start'], function() {
+  return gulp.src(paths.start)
+    .pipe(gulp.dest('build'));
 });
   
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['templates', 'scripts', 'images', 'less']);
+gulp.task('default', ['start', 'scripts', 'images', 'less']);
