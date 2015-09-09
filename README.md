@@ -10,9 +10,11 @@ This is a frontend demo of a responsive web page, to view this demo please visit
         cd nazar-fe
         
  2. **Acquire build dependencies.** Make sure you have [Node.js](http://nodejs.org/) installed on your workstation.
+
         npm install
  
  3.  **Run the build tool**
+
         gulp
 
 Now you'll find the built files in `build/`.
