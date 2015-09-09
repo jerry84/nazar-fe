@@ -6,12 +6,25 @@
   font-family: @nazarFont;
   
   .navbar {
+    min-width: 320px;
+
     &-brand {
-      font-size: 16px;
+      font-size: 16px;      
+    }
+    
+    #search-field {
+      padding: 9px;
+
+      .icon {
+        font-size: 20px;
+        border: 0;
+        background-color: #fff;
+      }
     }
     
     &-default {
       background-color: #fff;
+      border-width: 0 0 4px;
       
       .navbar-nav {
         font-size: 16px;
@@ -50,6 +63,46 @@
     color: #47a5de;
   }
   
+  .logo {
+    padding: 20px 20px 20px 50px;
+    
+    h3 {
+      size: 30px;
+    }
+    
+    .col-md-6 {
+      width: 50%;
+      float: left;
+    }
+    
+    .input-group {
+      margin-top: 20px;
+      margin-bottom: 10px;
+      max-width: 185px;
+    }
+    
+    .icon {
+      font-size: 20px;
+      border: 0;
+      background-color: #fff;
+    }
+  }
+  
+  .search {
+    color: #000;
+    border-color: #000;
+    border-radius: 0;
+    max-width: 140px;
+    font-family: Arial;
+    padding: 5px;
+    height: 32px;
+
+    &::-webkit-input-placeholder { color: #000; }
+    &:-moz-placeholder { color: #000; }
+    &::-moz-placeholder { color: #000; }
+    &:-ms-input-placeholder { color: #000; }
+  }
+
   @media (min-width: 768px) and (max-width: 1024px) {
     .navbar-nav > li >a {
       padding: 15px 10px;
@@ -60,7 +113,12 @@
   }
   
   @media (min-width: 768px) {
-    .navbar-brand {
+    .navbar-brand { display: none; }
+    #search-field { display: none; }
+  }
+  
+  @media (max-width: 767px) {
+    .logo {
       display: none;
     }
   }
