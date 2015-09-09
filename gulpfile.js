@@ -86,4 +86,4 @@ gulp.task('templates', ['clean:templates'], function() {
 });
   
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['templates', 'scripts', 'less']);
+gulp.task('default', ['templates', 'scripts', 'images', 'less']);
